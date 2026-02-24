@@ -16,6 +16,7 @@
     "node": ">= 10.13.0"
   },
   "scripts": {
+    "bump": "npx bumpp",
     "start": "npm run build -- -w",
     "clean": "del-cli dist",
     "prebuild": "npm run clean",
