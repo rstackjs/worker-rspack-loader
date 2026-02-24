@@ -3,10 +3,10 @@
   "version": "3.1.3",
   "description": "worker loader module for rspack",
   "license": "MIT",
-  "repository": "rspack-contrib/worker-rspack-loader",
+  "repository": "rstackjs/worker-rspack-loader",
   "author": "Tobias Koppers @sokra",
-  "homepage": "https://github.com/rspack-contrib/worker-rspack-loader",
-  "bugs": "https://github.com/rspack-contrib/worker-rspack-loader/issues",
+  "homepage": "https://github.com/rstackjs/worker-rspack-loader",
+  "bugs": "https://github.com/rstackjs/worker-rspack-loader/issues",
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/webpack"

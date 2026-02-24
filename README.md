@@ -17,7 +17,7 @@ The loader is basically the same as [webpack-contrib/worker-loader](https://gith
 
 Change list:
 
-- Compatible with Rspack: https://github.com/rspack-contrib/worker-rspack-loader/commit/7b90e834f67177badc313a52f701422256330d1e
+- Compatible with Rspack: https://github.com/rstackjs/worker-rspack-loader/commit/7b90e834f67177badc313a52f701422256330d1e
 
 ## Getting Started
 
@@ -636,10 +636,10 @@ Please take a moment to read our contributing guidelines if you haven't yet done
 [npm-url]: https://npmjs.com/package/worker-rspack-loader
 [node]: https://img.shields.io/node/v/worker-rspack-loader.svg
 [node-url]: https://nodejs.org
-[deps]: https://david-dm.org/rspack-contrib/worker-rspack-loader.svg
-[tests]: https://github.com/rspack-contrib/worker-rspack-loader/workflows/worker-rspack-loader/badge.svg
-[tests-url]: https://github.com/rspack-contrib/worker-rspack-loader/actions
-[cover]: https://codecov.io/gh/rspack-contrib/worker-rspack-loader/branch/master/graph/badge.svg
-[cover-url]: https://codecov.io/gh/rspack-contrib/worker-rspack-loader
+[deps]: https://david-dm.org/rstackjs/worker-rspack-loader.svg
+[tests]: https://github.com/rstackjs/worker-rspack-loader/workflows/worker-rspack-loader/badge.svg
+[tests-url]: https://github.com/rstackjs/worker-rspack-loader/actions
+[cover]: https://codecov.io/gh/rstackjs/worker-rspack-loader/branch/master/graph/badge.svg
+[cover-url]: https://codecov.io/gh/rstackjs/worker-rspack-loader
 [size]: https://packagephobia.now.sh/badge?p=worker-rspack-loader
 [size-url]: https://packagephobia.now.sh/result?p=worker-rspack-loader
