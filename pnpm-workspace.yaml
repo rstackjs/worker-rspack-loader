@@ -1,0 +1,3 @@
+allowBuilds:
+  husky: false
+  puppeteer: false
