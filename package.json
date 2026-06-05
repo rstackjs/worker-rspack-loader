@@ -1,6 +1,6 @@
 {
   "name": "worker-rspack-loader",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "description": "worker loader module for rspack",
   "license": "MIT",
   "repository": "rstackjs/worker-rspack-loader",
