@@ -1,37 +1,18 @@
-import { defineConfig, globals, js, ts } from '@rslint/core';
+import { defineConfig, js, ts } from '@rslint/core';
 
 export default defineConfig([
   js.configs.recommended,
   ts.configs.recommended,
   {
-    files: ['globalSetupTest.js', 'setupTest.js', 'test/**/*.js'],
-    languageOptions: {
-      globals: {
-        ...globals.jest,
-        ...globals.node,
-      },
+    rules: {
+      'no-undef': 'off',
     },
+  },
+  {
+    files: ['globalSetupTest.js', 'setupTest.js', 'test/**/*.js'],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
       'no-useless-assignment': 'off',
-    },
-  },
-  {
-    files: ['src/**/*.js'],
-    languageOptions: {
-      globals: {
-        Buffer: 'readonly',
-        require: 'readonly',
-      },
-    },
-  },
-  {
-    files: ['test/fixtures/**/*.js'],
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.worker,
-      },
     },
   },
   {
