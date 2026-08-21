@@ -43,6 +43,7 @@ module.exports = (content, workerConstructor, workerOptions, url) => {
     }
   } catch (e) {
     if (!url) {
+      // rslint-disable-next-line preserve-caught-error -- Keep the public fallback error stable
       throw Error("Inline worker is not supported");
     }
 

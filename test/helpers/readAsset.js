@@ -4,6 +4,7 @@ export default (asset, compiler, stats) => {
   const usedFs = compiler.outputFileSystem;
   const outputPath = stats.compilation.outputOptions.path;
 
+  // rslint-disable-next-line no-useless-assignment -- Initialized for both result paths
   let data = "";
   let targetFile = asset;
 
