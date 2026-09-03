@@ -13,6 +13,7 @@ Thumbs.db
 .idea
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 *.sublime-project
 *.sublime-workspace
 *.iml

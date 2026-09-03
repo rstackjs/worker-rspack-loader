@@ -16,23 +16,22 @@
     "node": ">= 10.13.0"
   },
   "scripts": {
-    "bump": "npx bumpp",
-    "start": "npm run build -- -w",
-    "clean": "del-cli dist",
-    "prebuild": "npm run clean",
-    "build": "cross-env NODE_ENV=production babel src -d dist --copy-files",
+    "build": "rs lib",
+    "bump": "pnpx bumpp",
+    "check": "rs check",
     "commitlint": "commitlint --from=master",
+    "dev": "rs lib -w",
+    "format": "rs fmt",
+    "lint": "rs lint",
+    "prepare": "rs hooks",
     "security": "npm audit",
-    "lint:prettier": "prettier --list-different .",
-    "lint": "rslint",
     "test:only": "cross-env NODE_ENV=test jest",
     "test:watch": "npm run test:only -- --watch",
     "test:coverage": "npm run test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
     "pretest": "npm run lint",
     "test": "npm run test:coverage",
     "release": "standard-version",
-    "prepublishOnly": "pnpm run build",
-    "lint:write": "rslint --fix"
+    "prepublishOnly": "pnpm run build"
   },
   "files": [
     "dist"
@@ -54,25 +53,21 @@
     "schema-utils": "^3.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.14.5",
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
-    "@rslint/core": "^0.8.2",
     "babel-jest": "^26.6.3",
     "cross-env": "^7.0.3",
     "del": "^6.0.0",
-    "del-cli": "^3.0.1",
     "express": "^4.17.1",
     "get-port": "^5.1.1",
     "html-webpack-plugin": "^4.5.0",
     "jest": "^26.6.3",
     "memfs": "^3.2.0",
     "nanoid": "^3.1.20",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.2",
     "puppeteer": "^7.0.4",
+    "rstack": "^0.7.2",
     "standard-version": "^9.3.1",
     "webpack": "^5.45.1"
   },
