@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "rs lib",
-    "bump": "pnpx bumpp",
+    "bump": "pnpm version -m \"release: v%s\"",
     "check": "rs check",
     "commitlint": "commitlint --from=master",
     "dev": "rs lib -w",
