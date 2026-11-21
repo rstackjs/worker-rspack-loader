@@ -34,7 +34,7 @@ function getExternalsType(compilerOptions) {
   return "var";
 }
 
-function workerGenerator(loaderContext, workerFilename, workerSource, options) {
+function workerGenerator(loaderContext, workerUrl, workerSource, options) {
   let workerConstructor;
   let workerOptions;
 
@@ -56,14 +56,6 @@ function workerGenerator(loaderContext, workerFilename, workerSource, options) {
       `!!${require.resolve("./runtime/inline.js")}`
     );
 
-    let fallbackWorkerPath;
-
-    if (options.inline === "fallback") {
-      fallbackWorkerPath = `__webpack_public_path__ + ${JSON.stringify(
-        workerFilename
-      )}`;
-    }
-
     return `
 ${
   esModule
@@ -77,14 +69,12 @@ ${
       workerSource
     )}, ${JSON.stringify(workerConstructor)}, ${JSON.stringify(
       workerOptions
-    )}, ${fallbackWorkerPath});\n}\n`;
+    )}, ${workerUrl});\n}\n`;
   }
 
   return `${
     esModule ? "export default" : "module.exports ="
-  } function ${fnName}() {\n  return new ${workerConstructor}(__webpack_public_path__ + ${JSON.stringify(
-    workerFilename
-  )}${workerOptions ? `, ${JSON.stringify(workerOptions)}` : ""});\n}\n`;
+  } function ${fnName}() {\n  return new ${workerConstructor}(${workerUrl}${workerOptions ? `, ${JSON.stringify(workerOptions)}` : ""});\n}\n`;
 }
 
 // Matches only the last occurrence of sourceMappingURL

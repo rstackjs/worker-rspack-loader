@@ -4,6 +4,21 @@ import {
   sourceURLWebpackRegex,
 } from "./utils";
 
+function getWorkerUrl(compilation, chunk, filename, options) {
+  const { publicPath } = options;
+  if (options.inline === "no-fallback") return undefined;
+  if (publicPath === undefined || publicPath === "auto") {
+    return `__webpack_public_path__ + ${JSON.stringify(filename)}`;
+  }
+
+  const data = { hash: compilation.hash, chunk, filename };
+  const template =
+    typeof publicPath === "function"
+      ? publicPath(data, compilation.getAsset(filename).info)
+      : publicPath;
+  return JSON.stringify(compilation.getPath(template, data) + filename);
+}
+
 export default function runAsChild(
   loaderContext,
   workerContext,
@@ -17,8 +32,19 @@ export default function runAsChild(
 
     if (entries[0]) {
       const [workerFilename] = [...entries[0].files];
+      let workerUrl;
+      try {
+        workerUrl = getWorkerUrl(
+          compilation,
+          entries[0],
+          workerFilename,
+          options
+        );
+      } catch (pathError) {
+        return callback(pathError);
+      }
       const cache = workerContext.compiler.getCache("worker-loader");
-      const cacheIdent = workerFilename;
+      const cacheIdent = JSON.stringify([workerFilename, workerUrl]);
       const cacheETag = cache.getLazyHashedEtag(
         compilation.assets[workerFilename]
       );
@@ -56,7 +82,7 @@ export default function runAsChild(
 
         const workerCode = workerGenerator(
           loaderContext,
-          workerFilename,
+          workerUrl,
           workerSource,
           options
         );
