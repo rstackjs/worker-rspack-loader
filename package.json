@@ -67,7 +67,7 @@
     "memfs": "^3.2.0",
     "nanoid": "^3.1.20",
     "puppeteer": "^7.0.4",
-    "rstack": "^0.7.2",
+    "rstack": "^0.9.5",
     "standard-version": "^9.3.1",
     "webpack": "^5.45.1"
   },
@@ -78,5 +78,5 @@
   "jest": {
     "testEnvironment": "node"
   },
-  "packageManager": "pnpm@11.3.0"
+  "packageManager": "pnpm@12.18.0"
 }
